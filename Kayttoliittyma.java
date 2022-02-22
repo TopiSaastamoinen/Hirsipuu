@@ -5,6 +5,7 @@ import java.util.Scanner;
 public class Kayttoliittyma {
     private Scanner lukija;
     private ArrayList<String> sanalista;
+    private Arvonta arvonta;
 
 
     public Kayttoliittyma(Scanner lukija) {
@@ -22,11 +23,13 @@ public class Kayttoliittyma {
                 sanalista.add(rivi);
             }
         } catch (Exception e) {
-            System.out.println("Virhe!" + e.getMessage()); //TODO: handle exception
+            System.out.println("Virhe!" + e.getMessage()); 
         }
 
         while (true) {
+            System.out.println(arvonta.arvoSana(sanalista));
             
+            // arvonta.arvoSana(sanalista);
             
         }
     }
