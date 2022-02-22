@@ -2,13 +2,12 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class Arvonta {
-    private ArrayList<String> sanalista;
 
-    public Arvonta() {
-        this.sanalista = new ArrayList<>();
-    }
+    // public Arvonta(String sanalista) {
+    // this.sanalista = sanalista;
+    // }
 
-    public String arvoSana() {
+    public String arvoSana(ArrayList<String> sanalista) {
         Random arpa = new Random();
         int indeksi = arpa.nextInt(sanalista.size());
         return sanalista.get(indeksi);
