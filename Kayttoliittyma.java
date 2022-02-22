@@ -11,6 +11,7 @@ public class Kayttoliittyma {
     public Kayttoliittyma(Scanner lukija) {
         this.lukija = lukija;
         this.sanalista = new ArrayList<>();
+        this.arvonta = new Arvonta();
     }
 
     public void kaynnista() {
