@@ -6,12 +6,14 @@ public class Kayttoliittyma {
     private Scanner lukija;
     private ArrayList<String> sanalista;
     private Arvonta arvonta;
+    private UusiSana UusiSana;
 
 
     public Kayttoliittyma(Scanner lukija) {
         this.lukija = lukija;
         this.sanalista = new ArrayList<>();
         this.arvonta = new Arvonta();
+        this.UusiSana = new UusiSana();
     }
 
     public void kaynnista() {
@@ -28,10 +30,11 @@ public class Kayttoliittyma {
         }
 
         while (true) {
-            System.out.println(arvonta.arvoSana(sanalista));
-            
-            // arvonta.arvoSana(sanalista);
-            
+            System.out.println("Syötä lisättävä sana ");
+            String syote = lukija.nextLine();
+            arvonta.arvoSana(sanalista);
+            UusiSana.lisaa(syote);
+        
         }
     }
 
