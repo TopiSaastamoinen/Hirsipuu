@@ -31,9 +31,10 @@ public class Kayttoliittyma {
 
         while (true) {
                         
-            System.out.println("Aloita peli kirjoittamalla 'Aloita'" //aloita peli, lisää sanoja yms
-                            +   "Lisää uusi sana listalle kirjoittamalla 'lisaa'"
-                            +   "Lopeta painamalla L");
+            System.out.print("Aloita peli kirjoittamalla 'Aloita'\n" //aloita peli, lisää sanoja yms
+                            +   "Lisää uusi sana listalle kirjoittamalla 'lisaa'\n"
+                            +   "Lopeta painamalla L\n"
+                            +   ">");
             String syote = lukija.nextLine();
 
             if (syote.equalsIgnoreCase("l")) {
@@ -46,5 +47,6 @@ public class Kayttoliittyma {
                    
         }
     }
+}
 
 
