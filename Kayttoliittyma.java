@@ -30,14 +30,21 @@ public class Kayttoliittyma {
         }
 
         while (true) {
-            System.out.println("Syötä lisättävä sana ");
+                        
+            System.out.println("Aloita peli kirjoittamalla 'Aloita'" //aloita peli, lisää sanoja yms
+                            +   "Lisää uusi sana listalle kirjoittamalla 'lisaa'"
+                            +   "Lopeta painamalla L");
             String syote = lukija.nextLine();
-            arvonta.arvoSana(sanalista);
-            UusiSana.lisaa(syote);
-        
+
+            if (syote.equalsIgnoreCase("l")) {
+                break;
+            } else if (syote.equalsIgnoreCase("lisaa")) {
+                this.UusiSana.lisaa();
+            } else if (syote.equalsIgnoreCase("aloita")) {
+                String arvottuSana = arvonta.arvoSana(sanalista); //sana on valittu arvalla
+            }
+                   
         }
     }
 
 
-
-}
