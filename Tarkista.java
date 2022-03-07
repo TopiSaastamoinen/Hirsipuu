@@ -14,6 +14,7 @@ public class Tarkista {
 
         } else {
             System.out.println("Ei ollut kirjainta " + kirjain);
+            virheet++;
             return false;
         }
     }
