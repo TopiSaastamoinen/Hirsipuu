@@ -104,9 +104,11 @@ public class Kayttoliittyma {
                     System.out.println("__A___|");
 
                     tarkista.nollaa();
-                    kaynnista();
+
+                    break;
                 }
             }
+
         }
 
     }
