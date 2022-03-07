@@ -1,3 +1,7 @@
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Scanner;
 
 public class UusiSana {
@@ -11,12 +15,30 @@ public class UusiSana {
         System.out.println("Syötä lisättävä sana: ");
         String syote = lukija.nextLine().toUpperCase();
 
-        // tarkista kaikki sanan kirjaimet, jos ääkkösiä => virhe
+        // tarkista kaikki sanan kirjaimet, jos ääkkösiä tai numeroita yms. => virhe
         if (!(! syote.matches(".*[^A-Z].*"))) {
-            System.out.println("Sanassa ei voi olla ääkkösiä!");
+            System.out.println("Sanassa voi olla vain kirjaimia A-Z");
+
         } else {
             // lisää syöte sanat.txt tiedostoon
-            // käytä lisättyä sanaa heti?
+            try(FileWriter fwriter = new FileWriter("sanat.txt", true);
+                BufferedWriter bwriter = new BufferedWriter(fwriter);
+                PrintWriter out = new PrintWriter(bwriter))
+                {
+                    out.println("\n" + syote);
+                
+            } catch (IOException e) {
+                System.out.println("Virhe! " + e.getMessage());
+            }
+
+            System.out.println("Käytä lisättyä sanaa heti?");
+            // - lue sanat.txt tiedoston viimeinen rivi (tarpeeton koska sana on syote muuttujassa?) *
+            // - käytä valittua sanaa seuraavassa pelissä
+            //    * riippuen miten tämä suoritetaan. käyttöliittymässä vai tässä? aloitusta pitäisi muuttaa joustavammaksi
+
+            // aloitus esim. 
+            // jos käytä lisättyä sanaa == true => käytä syote muuttujaa/lue sanat.txt viimeinen rivi (mieluiten käyttäisin muuttujaa... mietittävää)
+            // muuten => arvo random sana
         }
     }
 }
