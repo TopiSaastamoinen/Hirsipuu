@@ -23,4 +23,8 @@ public class Tarkista {
         return this.virheet;
     }
 
+    public void nollaa() {
+        this.virheet = 0;
+    }
+
 }
