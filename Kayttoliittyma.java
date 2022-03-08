@@ -59,16 +59,18 @@ public class Kayttoliittyma {
             String kirjain = lukija.nextLine().toUpperCase();
 
             if (this.tarkista.tarkistaSana(arvottuSana, kirjain) == true) {
-                System.out.println(arvottuSana);
+
+                this.tarkista.tulostaSana(arvottuSana, kirjain);
             } else {
                 if (tarkista.getVirheet() == 1) {
                     System.out.println("       ");
-                    System.out.println("       ");
-                    System.out.println("       ");
-                    System.out.println("       ");
-                    System.out.println("       ");
-                    System.out.println("_______");
+                    System.out.println("  -    ");
+                    System.out.println("    -  ");
+                    System.out.println(" -     ");
+                    System.out.println("   -   ");
+                    System.out.println("______ ");
                 } else if (tarkista.getVirheet() == 2) {
+                    System.out.println("       ");
                     System.out.println("      |");
                     System.out.println("      |");
                     System.out.println("      |");
@@ -90,18 +92,18 @@ public class Kayttoliittyma {
                     System.out.println("______|");
                 } else if (tarkista.getVirheet() == 5) {
                     System.out.println("______ ");
-                    System.out.println(" |   L|");
-                    System.out.println(" |    |");
-                    System.out.println(" O    |");
+                    System.out.println("  |  L|");
+                    System.out.println("  |   |");
+                    System.out.println("  O   |");
                     System.out.println("      |");
-                    System.out.println("__A___|");
+                    System.out.println("_A____|");
                 } else if (tarkista.getVirheet() >= 6) {
                     System.out.println("______ ");
-                    System.out.println(" |   L|");
-                    System.out.println("_O_   |");
-                    System.out.println("|||   |");
-                    System.out.println(" H    |");
-                    System.out.println("__A___|");
+                    System.out.println("  |  L|");
+                    System.out.println(" _O_  |");
+                    System.out.println(" |||  |");
+                    System.out.println("  H   |");
+                    System.out.println("_A____|");
 
                     tarkista.nollaa();
 
