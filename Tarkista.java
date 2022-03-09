@@ -34,6 +34,7 @@ public class Tarkista {
 
             if (vaarat.contains(kirjain)) {
                 System.out.println("Käytit jo " + kirjain + ":n");
+                System.out.println("");
                 return true;
             }
             System.out.println("Ei ollut kirjainta " + kirjain);
@@ -87,6 +88,7 @@ public class Tarkista {
     public void nollaa() {
         this.virheet = 0;
         this.kirjainlista.removeAll(kirjainlista);
+        this.vaarat.removeAll(vaarat);
     }
 
 }
