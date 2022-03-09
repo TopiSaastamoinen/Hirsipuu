@@ -46,6 +46,7 @@ public class Kayttoliittyma {
                 this.UusiSana.lisaa();
             } else if (syote.equalsIgnoreCase("aloita")) {
                 arvottuSana = arvonta.arvoSana(sanalista); // sana on valittu arvalla
+                this.tarkista.tulostaSana(arvottuSana);
                 testi();
             }
 
@@ -57,9 +58,14 @@ public class Kayttoliittyma {
         while (true) {
             System.out.print("Anna kirjain: ");
             String kirjain = lukija.nextLine().toUpperCase();
+            if (kirjain.equals("")) {
+                continue;
+            }
 
             if (this.tarkista.tarkistaSana(arvottuSana, kirjain) == true) {
                 this.tarkista.tulostaSana(arvottuSana);
+                this.tarkista.tulostaVaarat();
+                System.out.println("");
             } else {
                 if (tarkista.getVirheet() == 1) {
                     System.out.println("       ");
@@ -108,6 +114,10 @@ public class Kayttoliittyma {
 
                     break;
                 }
+
+                System.out.println("");
+                this.tarkista.tulostaSana(arvottuSana);
+                this.tarkista.tulostaVaarat();
             }
 
         }
