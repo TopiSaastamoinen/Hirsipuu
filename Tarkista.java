@@ -27,17 +27,25 @@ public class Tarkista {
         }
     }
 
-    public void tulostaSana(String sana, String kirjain) {
+    public void tulostaSana(String sana) {
 
         int pituus = sana.length() - 1;
         String kirjaimet[] = sana.split((""));
 
+        int loyty = 0;
         for (int i = 0; i <= pituus; i++) {
-            if (kirjaimet[i].contains(kirjain)) {
-                System.out.print(kirjaimet[i] + " ");
-            } else {
+            loyty = 0;
+            for (String kirjain : kirjainlista) {
+                if (kirjaimet[i].contains(kirjain)) {
+                    System.out.print(kirjaimet[i] + " ");
+                    loyty = 1;
+                    continue;
+                }
+            }
+            if (loyty == 0) {
                 System.out.print("_ ");
             }
+
         }
         System.out.println("");
     }
