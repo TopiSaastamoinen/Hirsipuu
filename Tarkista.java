@@ -16,7 +16,9 @@ public class Tarkista {
             System.out.println("Tässä oli kirjain " + kirjain);
             System.out.println("");
 
-            kirjainlista.add(kirjain);
+            if (!(kirjainlista.contains(kirjain))) {
+                kirjainlista.add(kirjain);
+            }
 
             return true;
 

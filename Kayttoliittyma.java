@@ -59,8 +59,6 @@ public class Kayttoliittyma {
             String kirjain = lukija.nextLine().toUpperCase();
 
             if (this.tarkista.tarkistaSana(arvottuSana, kirjain) == true) {
-                System.out.println(arvottuSana + "vastaus");
-
                 this.tarkista.tulostaSana(arvottuSana);
             } else {
                 if (tarkista.getVirheet() == 1) {
