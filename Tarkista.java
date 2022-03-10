@@ -3,11 +3,13 @@ import java.util.ArrayList;
 
 public class Tarkista {
     private int virheet;
+    private boolean voitto;
     private ArrayList<String> kirjainlista;
     private ArrayList<String> vaarat;
 
     public Tarkista() {
         this.virheet = virheet;
+        this.voitto = voitto;
         this.kirjainlista = new ArrayList<>();
         this.vaarat = new ArrayList<>();
     }
@@ -50,6 +52,7 @@ public class Tarkista {
         String kirjaimet[] = sana.split((""));
 
         int loyty = 0;
+        voitto = true;
         for (int i = 0; i <= pituus; i++) {
             loyty = 0;
             for (String kirjain : kirjainlista) {
@@ -61,6 +64,7 @@ public class Tarkista {
             }
             if (loyty == 0) {
                 System.out.print("_ ");
+                voitto = false;
             }
 
         }
@@ -79,6 +83,10 @@ public class Tarkista {
             System.out.print(", ");
             i++;
         }
+    }
+
+    public boolean onkoKaikki() {
+        return voitto;
     }
 
     public int getVirheet() {
