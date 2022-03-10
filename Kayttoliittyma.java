@@ -20,7 +20,7 @@ public class Kayttoliittyma {
     }
 
     public void kaynnista() {
-        try (Scanner tiedostonlukija = new Scanner(Paths.get("lauseet.txt"))) {
+        try (Scanner tiedostonlukija = new Scanner(Paths.get("fraasit.txt"))) {
             while (tiedostonlukija.hasNextLine()) {
                 String rivi = tiedostonlukija.nextLine();
                 if (rivi.isEmpty()) {
