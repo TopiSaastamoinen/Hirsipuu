@@ -61,8 +61,13 @@ public class Tarkista {
                     loyty = 1;
                     continue;
                 }
+
             }
             if (loyty == 0) {
+                if (!(!kirjaimet[i].matches(".*[^A-Z].*"))) {
+                    System.out.print(kirjaimet[i] + " ");
+                    continue;
+                }
                 System.out.print("_ ");
                 voitto = false;
             }

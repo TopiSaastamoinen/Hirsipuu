@@ -20,7 +20,7 @@ public class Kayttoliittyma {
     }
 
     public void kaynnista() {
-        try (Scanner tiedostonlukija = new Scanner(Paths.get("sanat.txt"))) {
+        try (Scanner tiedostonlukija = new Scanner(Paths.get("lauseet.txt"))) {
             while (tiedostonlukija.hasNextLine()) {
                 String rivi = tiedostonlukija.nextLine();
                 if (rivi.isEmpty()) {
@@ -58,7 +58,7 @@ public class Kayttoliittyma {
         while (true) {
             System.out.print("Anna kirjain: ");
             String kirjain = lukija.nextLine().toUpperCase();
-            if (kirjain.equals("")) {
+            if (!(!kirjain.matches(".*[^A-Z].*"))) {
                 continue;
             }
 
@@ -132,12 +132,14 @@ public class Kayttoliittyma {
     public void taysiSana() {
 
         if (tarkista.getVirheet() == 0) {
+            System.out.println("     ");
             System.out.println("    P");
             System.out.println(" _O/ ");
             System.out.println("/_|_/");
             System.out.println("/    ");
             System.out.println("     ");
         } else if (tarkista.getVirheet() == 1) {
+            System.out.println("                 ");
             System.out.println("    P            ");
             System.out.println(" _O/             ");
             System.out.println("/_|_/            ");
@@ -145,6 +147,7 @@ public class Kayttoliittyma {
             System.out.println("                 ");
 
         } else if (tarkista.getVirheet() == 2) {
+            System.out.println("                 ");
             System.out.println("                |");
             System.out.println("    P           |");
             System.out.println(" _O/            |");
