@@ -20,37 +20,46 @@ public class Kayttoliittyma {
     }
 
     public void kaynnista() {
-        try (Scanner tiedostonlukija = new Scanner(Paths.get("fraasit.txt"))) {
-            while (tiedostonlukija.hasNextLine()) {
-                String rivi = tiedostonlukija.nextLine();
-                if (rivi.isEmpty()) {
-                    break;
-                }
-                sanalista.add(rivi);
-            }
-        } catch (Exception e) {
-            System.out.println("Virhe!" + e.getMessage());
-        }
-
+        String haaste = "";
         while (true) {
 
-            System.out.print("Aloita peli kirjoittamalla 'Aloita'\n" // aloita peli, lisää sanoja yms
+            System.out.print("Yksittäinen sana: 's'\n" // aloita peli, lisää sanoja yms
+                    + "Fraasi: 'f'\n"
+                    + "Sattumanvarainen virke: 'v'\n"
                     + "Lisää uusi sana listalle kirjoittamalla 'lisaa'\n"
                     + "Lopeta painamalla L\n"
-                    + ">");
+                    + "> ");
+
             String syote = lukija.nextLine();
 
             if (syote.equalsIgnoreCase("l")) {
                 break;
             } else if (syote.equalsIgnoreCase("lisaa")) {
                 this.UusiSana.lisaa();
-            } else if (syote.equalsIgnoreCase("aloita")) {
-                arvottuSana = arvonta.arvoSana(sanalista); // sana on valittu arvalla
-                this.tarkista.tulostaSana(arvottuSana);
-                testi();
+            } else if (syote.equalsIgnoreCase("s")) {
+                haaste = "sanat.txt";
+            } else if (syote.equalsIgnoreCase("f")) {
+                haaste = "fraasit.txt";
+            } else if (syote.equalsIgnoreCase("v")) {
+                haaste = "lauseet.txt";
             }
+            try (Scanner tiedostonlukija = new Scanner(Paths.get(haaste))) {
+                while (tiedostonlukija.hasNextLine()) {
+                    String rivi = tiedostonlukija.nextLine();
+                    if (rivi.isEmpty()) {
+                        break;
+                    }
+                    sanalista.add(rivi);
+                }
+            } catch (Exception e) {
+                System.out.println("Virhe!" + e.getMessage());
+            }
+            arvottuSana = arvonta.arvoSana(sanalista); // sana on valittu arvalla
+            this.tarkista.tulostaSana(arvottuSana);
+            testi();
 
         }
+
     }
 
     public void testi() {
@@ -58,7 +67,7 @@ public class Kayttoliittyma {
         while (true) {
             System.out.print("Anna kirjain: ");
             String kirjain = lukija.nextLine().toUpperCase();
-            if (!(!kirjain.matches(".*[^A-Z].*"))) {
+            if (!(!kirjain.matches(".*[^A-Z].*")) || kirjain.equals("")) {
                 continue;
             }
 
@@ -134,15 +143,15 @@ public class Kayttoliittyma {
         if (tarkista.getVirheet() == 0) {
             System.out.println("     ");
             System.out.println("    P");
-            System.out.println(" _O/ ");
-            System.out.println("/_|_/");
+            System.out.println("__O/ ");
+            System.out.println(" _|_/");
             System.out.println("/    ");
             System.out.println("     ");
         } else if (tarkista.getVirheet() == 1) {
             System.out.println("                 ");
             System.out.println("    P            ");
-            System.out.println(" _O/             ");
-            System.out.println("/_|_/            ");
+            System.out.println("__O/             ");
+            System.out.println(" _|_/            ");
             System.out.println("/         ______ ");
             System.out.println("                 ");
 
@@ -150,8 +159,8 @@ public class Kayttoliittyma {
             System.out.println("                 ");
             System.out.println("                |");
             System.out.println("    P           |");
-            System.out.println(" _O/            |");
-            System.out.println("/_|_/           |");
+            System.out.println("__O/            |");
+            System.out.println(" _|_/           |");
             System.out.println("/         ______|");
             System.out.println("                 ");
 
@@ -159,8 +168,8 @@ public class Kayttoliittyma {
             System.out.println("          ______ ");
             System.out.println("                |");
             System.out.println("    P           |");
-            System.out.println(" _O/            |");
-            System.out.println("/_|_/           |");
+            System.out.println("__O/            |");
+            System.out.println(" _|_/           |");
             System.out.println("/         ______|");
             System.out.println("                 ");
 
@@ -168,8 +177,8 @@ public class Kayttoliittyma {
             System.out.println("          ______ ");
             System.out.println("               L|");
             System.out.println("    P           |");
-            System.out.println(" _O/            |");
-            System.out.println("/_|_/           |");
+            System.out.println("__O/            |");
+            System.out.println(" _|_/           |");
             System.out.println("/         ______|");
             System.out.println("                 ");
 
@@ -177,8 +186,8 @@ public class Kayttoliittyma {
             System.out.println("          ______ ");
             System.out.println("            |  L|");
             System.out.println("    P       |   |");
-            System.out.println(" _O/        O   |");
-            System.out.println("/_|_/           |");
+            System.out.println("__O/        O   |");
+            System.out.println(" _|_/           |");
             System.out.println("/         _A____|");
             System.out.println("                 ");
 
