@@ -20,10 +20,10 @@ public class Aloita {
         
         arvottuSana = arvonta.arvoSana(sanalista); //sana on valittu arvalla
         tarkista.tulostaSana(arvottuSana);
-        testi();
+        suorita();
     }
 
-    public void testi() {
+    public void suorita() {
 
         while (true) {
             System.out.print("Anna kirjain: ");
