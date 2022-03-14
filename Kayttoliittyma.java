@@ -12,21 +12,19 @@ public class Kayttoliittyma {
     private Aloita aloita;
     private String syote;
 
-     
-
     public Kayttoliittyma(Scanner lukija) {
         this.lukija = lukija;
         this.sanalista = new ArrayList<>();
         this.arvonta = new Arvonta();
         this.UusiSana = new UusiSana();
         this.tarkista = new Tarkista();
-        String syote ="";
+        String syote = "";
         this.aloita = new Aloita(lukija);
 
     }
 
     public void kaynnista() {
-        
+
         while (true) {
             String haaste = "";
 
@@ -39,7 +37,7 @@ public class Kayttoliittyma {
 
             syote = lukija.nextLine();
 
-                // valitaan mitä tehdään
+            // valitaan mitä tehdään
             if (syote.equalsIgnoreCase("l")) {
                 break;
             } else if (syote.equalsIgnoreCase("lisaa")) {
@@ -51,7 +49,7 @@ public class Kayttoliittyma {
             } else if (syote.equalsIgnoreCase("v")) {
                 haaste = "lauseet.txt";
             }
-                // ladataan txt tiedosto
+            // ladataan txt tiedosto
             try (Scanner tiedostonlukija = new Scanner(Paths.get(haaste))) {
                 while (tiedostonlukija.hasNextLine()) {
                     String rivi = tiedostonlukija.nextLine();
@@ -74,6 +72,5 @@ public class Kayttoliittyma {
         }
 
     }
-
 
 }
