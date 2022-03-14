@@ -9,6 +9,8 @@ public class Kayttoliittyma {
     private UusiSana UusiSana;
     private Tarkista tarkista;
     private String arvottuSana;
+    private Aloita aloita;
+     
 
     public Kayttoliittyma(Scanner lukija) {
         this.lukija = lukija;
@@ -20,18 +22,20 @@ public class Kayttoliittyma {
     }
 
     public void kaynnista() {
-        String haaste = "";
+        
         while (true) {
+            String haaste = "";
 
-            System.out.print("Yksittäinen sana: 's'\n" // aloita peli, lisää sanoja yms
+            System.out.print("\nYksittäinen sana: 's'\n" // aloita peli, lisää sanoja yms
                     + "Fraasi: 'f'\n"
                     + "Sattumanvarainen virke: 'v'\n"
                     + "Lisää uusi sana listalle kirjoittamalla 'lisaa'\n"
-                    + "Lopeta painamalla L\n"
+                    + "Lopeta painamalla 'l'\n"
                     + "> ");
 
             String syote = lukija.nextLine();
 
+                // valitaan mitä tehdään
             if (syote.equalsIgnoreCase("l")) {
                 break;
             } else if (syote.equalsIgnoreCase("lisaa")) {
@@ -43,6 +47,7 @@ public class Kayttoliittyma {
             } else if (syote.equalsIgnoreCase("v")) {
                 haaste = "lauseet.txt";
             }
+                // ladataan txt tiedosto
             try (Scanner tiedostonlukija = new Scanner(Paths.get(haaste))) {
                 while (tiedostonlukija.hasNextLine()) {
                     String rivi = tiedostonlukija.nextLine();
@@ -52,147 +57,17 @@ public class Kayttoliittyma {
                     sanalista.add(rivi);
                 }
             } catch (Exception e) {
-                System.out.println("Virhe!" + e.getMessage());
+                System.out.println("\nAnna oikea komento!" + e.getMessage());
+                kaynnista();
             }
-            arvottuSana = arvonta.arvoSana(sanalista); // sana on valittu arvalla
-            this.tarkista.tulostaSana(arvottuSana);
-            testi();
+
+            System.out.println("Aloita peli? k/e");
+            syote = lukija.nextLine();
+            if (syote.equalsIgnoreCase("k")) {
+                aloita.aloita(sanalista);
+            }
 
         }
 
-    }
-
-    public void testi() {
-
-        while (true) {
-            System.out.print("Anna kirjain: ");
-            String kirjain = lukija.nextLine().toUpperCase();
-            if (!(!kirjain.matches(".*[^A-Z].*")) || kirjain.equals("")) {
-                continue;
-            }
-
-            if (this.tarkista.tarkistaSana(arvottuSana, kirjain) == true) {
-                this.tarkista.tulostaSana(arvottuSana);
-
-            } else {
-                if (tarkista.getVirheet() == 1) {
-                    System.out.println("       ");
-                    System.out.println("  -    ");
-                    System.out.println("    -  ");
-                    System.out.println(" -     ");
-                    System.out.println("   -   ");
-                    System.out.println("______ ");
-                } else if (tarkista.getVirheet() == 2) {
-                    System.out.println("       ");
-                    System.out.println("      |");
-                    System.out.println("      |");
-                    System.out.println("      |");
-                    System.out.println("      |");
-                    System.out.println("______|");
-                } else if (tarkista.getVirheet() == 3) {
-                    System.out.println("______ ");
-                    System.out.println("      |");
-                    System.out.println("      |");
-                    System.out.println("      |");
-                    System.out.println("      |");
-                    System.out.println("______|");
-                } else if (tarkista.getVirheet() == 4) {
-                    System.out.println("______ ");
-                    System.out.println("     L|");
-                    System.out.println("      |");
-                    System.out.println("      |");
-                    System.out.println("      |");
-                    System.out.println("______|");
-                } else if (tarkista.getVirheet() == 5) {
-                    System.out.println("______ ");
-                    System.out.println("  |  L|");
-                    System.out.println("  |   |");
-                    System.out.println("  O   |");
-                    System.out.println("      |");
-                    System.out.println("_A____|");
-                } else if (tarkista.getVirheet() >= 6) {
-                    System.out.println("______ ");
-                    System.out.println("  |  L|");
-                    System.out.println(" _O_  |");
-                    System.out.println(" |||  |");
-                    System.out.println("  H   |");
-                    System.out.println("_A____|");
-
-                    tarkista.nollaa();
-
-                    break;
-                }
-
-                System.out.println("");
-                this.tarkista.tulostaSana(arvottuSana);
-
-            }
-
-            if (this.tarkista.onkoKaikki() == true) {
-                taysiSana();
-                break;
-            }
-            this.tarkista.tulostaVaarat();
-            System.out.println("");
-        }
-
-    }
-
-    public void taysiSana() {
-
-        if (tarkista.getVirheet() == 0) {
-            System.out.println("     ");
-            System.out.println("    P");
-            System.out.println("__O/ ");
-            System.out.println(" _|_/");
-            System.out.println("/    ");
-            System.out.println("     ");
-        } else if (tarkista.getVirheet() == 1) {
-            System.out.println("                 ");
-            System.out.println("    P            ");
-            System.out.println("__O/             ");
-            System.out.println(" _|_/            ");
-            System.out.println("/         ______ ");
-            System.out.println("                 ");
-
-        } else if (tarkista.getVirheet() == 2) {
-            System.out.println("                 ");
-            System.out.println("                |");
-            System.out.println("    P           |");
-            System.out.println("__O/            |");
-            System.out.println(" _|_/           |");
-            System.out.println("/         ______|");
-            System.out.println("                 ");
-
-        } else if (tarkista.getVirheet() == 3) {
-            System.out.println("          ______ ");
-            System.out.println("                |");
-            System.out.println("    P           |");
-            System.out.println("__O/            |");
-            System.out.println(" _|_/           |");
-            System.out.println("/         ______|");
-            System.out.println("                 ");
-
-        } else if (tarkista.getVirheet() == 4) {
-            System.out.println("          ______ ");
-            System.out.println("               L|");
-            System.out.println("    P           |");
-            System.out.println("__O/            |");
-            System.out.println(" _|_/           |");
-            System.out.println("/         ______|");
-            System.out.println("                 ");
-
-        } else if (tarkista.getVirheet() == 5) {
-            System.out.println("          ______ ");
-            System.out.println("            |  L|");
-            System.out.println("    P       |   |");
-            System.out.println("__O/        O   |");
-            System.out.println(" _|_/           |");
-            System.out.println("/         _A____|");
-            System.out.println("                 ");
-
-        }
-        tarkista.nollaa();
-
-    }
+}
 }
