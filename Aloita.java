@@ -37,19 +37,22 @@ public class Aloita {
 
             } else {
                 if (tarkista.getVirheet() == 1) {
-                    System.out.println("       ");
-                    System.out.println("  -    ");
-                    System.out.println("    -  ");
-                    System.out.println(" -     ");
-                    System.out.println("   -   ");
-                    System.out.println("______ ");
+                    System.out.println(
+                        "       \n"+
+                        "  -    \n"+
+                        "    -  \n"+
+                        " -     \n"+
+                        "   -   \n"+
+                        "______ ");
                 } else if (tarkista.getVirheet() == 2) {
-                    System.out.println("       ");
-                    System.out.println("      |");
-                    System.out.println("      |");
-                    System.out.println("      |");
-                    System.out.println("      |");
-                    System.out.println("______|");
+                    System.out.println(
+                        "      |\n"+
+                        "      |\n"+
+                        "      |\n"+
+                        "      |\n"+
+                        "      |\n"+
+                        "______ ");
+
                 } else if (tarkista.getVirheet() == 3) {
                     System.out.println("______ ");
                     System.out.println("      |");
