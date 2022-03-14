@@ -10,6 +10,8 @@ public class Kayttoliittyma {
     private Tarkista tarkista;
     private String arvottuSana;
     private Aloita aloita;
+    private String syote;
+
      
 
     public Kayttoliittyma(Scanner lukija) {
@@ -18,6 +20,8 @@ public class Kayttoliittyma {
         this.arvonta = new Arvonta();
         this.UusiSana = new UusiSana();
         this.tarkista = new Tarkista();
+        String syote ="";
+        this.aloita = new Aloita(lukija);
 
     }
 
@@ -33,7 +37,7 @@ public class Kayttoliittyma {
                     + "Lopeta painamalla 'l'\n"
                     + "> ");
 
-            String syote = lukija.nextLine();
+            syote = lukija.nextLine();
 
                 // valitaan mitä tehdään
             if (syote.equalsIgnoreCase("l")) {
@@ -57,8 +61,8 @@ public class Kayttoliittyma {
                     sanalista.add(rivi);
                 }
             } catch (Exception e) {
-                System.out.println("\nAnna oikea komento!" + e.getMessage());
-                kaynnista();
+                System.out.println("\nVirhe! Anna oikea komento." + e.getMessage());
+                continue;
             }
 
             System.out.println("Aloita peli? k/e");
@@ -69,5 +73,7 @@ public class Kayttoliittyma {
 
         }
 
-}
+    }
+
+
 }

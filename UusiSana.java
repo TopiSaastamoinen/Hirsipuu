@@ -21,17 +21,19 @@ public class UusiSana {
 
         } else {
             // lisää syöte sanat.txt tiedostoon
+            // tästä puuttuu se tarkistus if-lauseke, joka tarkistaa sanan olemassaolon listalla.
             try(FileWriter fwriter = new FileWriter("sanat.txt", true);
                 BufferedWriter bwriter = new BufferedWriter(fwriter);
                 PrintWriter out = new PrintWriter(bwriter))
                 {
-                    out.println("\n" + syote);
+                    out.print("\n" + syote);
                 
             } catch (IOException e) {
                 System.out.println("Virhe! " + e.getMessage());
+
             }
 
-            System.out.println("Käytä lisättyä sanaa heti?");
+            // System.out.println("Käytä lisättyä sanaa heti?");
             // - lue sanat.txt tiedoston viimeinen rivi (tarpeeton koska sana on syote muuttujassa?) *
             // - käytä valittua sanaa seuraavassa pelissä
             //    * riippuen miten tämä suoritetaan. käyttöliittymässä vai tässä? aloitusta pitäisi muuttaa joustavammaksi
