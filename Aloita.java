@@ -7,18 +7,16 @@ public class Aloita {
     private Scanner lukija;
     private String arvottuSana;
 
-
     public Aloita(Scanner lukija) {
         this.arvonta = new Arvonta();
         this.tarkista = new Tarkista();
         this.lukija = lukija;
 
-
     }
 
     public void aloita(ArrayList<String> sanalista) {
-        
-        arvottuSana = arvonta.arvoSana(sanalista); //sana on valittu arvalla
+
+        arvottuSana = arvonta.arvoSana(sanalista); // sana on valittu arvalla
         tarkista.tulostaSana(arvottuSana);
         suorita();
     }
@@ -35,49 +33,24 @@ public class Aloita {
             if (this.tarkista.tarkistaSana(arvottuSana, kirjain) == true) {
                 this.tarkista.tulostaSana(arvottuSana);
 
-            } else {
+            } else { // Hirsipuun rakentaminen
                 if (tarkista.getVirheet() == 1) {
-                    System.out.println("       ");
-                    System.out.println("  -    ");
-                    System.out.println("    -  ");
-                    System.out.println(" -     ");
-                    System.out.println("   -   ");
-                    System.out.println("______ ");
+                    System.out.println("\n  -    \n" + "    -  \n" + " -     \n" + "   -   \n" + "______ ");
                 } else if (tarkista.getVirheet() == 2) {
-                    System.out.println("       ");
-                    System.out.println("      |");
-                    System.out.println("      |");
-                    System.out.println("      |");
-                    System.out.println("      |");
-                    System.out.println("______|");
+                    System.out
+                            .println("\n       \n" + "      |\n" + "      |\n" + "      |\n" + "      |\n" + "______|");
                 } else if (tarkista.getVirheet() == 3) {
-                    System.out.println("______ ");
-                    System.out.println("      |");
-                    System.out.println("      |");
-                    System.out.println("      |");
-                    System.out.println("      |");
-                    System.out.println("______|");
+                    System.out
+                            .println("\n______ \n" + "      |\n" + "      |\n" + "      |\n" + "      |\n" + "______|");
                 } else if (tarkista.getVirheet() == 4) {
-                    System.out.println("______ ");
-                    System.out.println("     L|");
-                    System.out.println("      |");
-                    System.out.println("      |");
-                    System.out.println("      |");
-                    System.out.println("______|");
+                    System.out
+                            .println("\n______ \n" + "     L|\n" + "      |\n" + "      |\n" + "      |\n" + "______|");
                 } else if (tarkista.getVirheet() == 5) {
-                    System.out.println("______ ");
-                    System.out.println("  |  L|");
-                    System.out.println("  |   |");
-                    System.out.println("  O   |");
-                    System.out.println("      |");
-                    System.out.println("_A____|");
+                    System.out
+                            .println("\n______ \n" + "  |  L|\n" + "  |   |\n" + "  O   |\n" + "      |\n" + "_A____|");
                 } else if (tarkista.getVirheet() >= 6) {
-                    System.out.println("______ ");
-                    System.out.println("  |  L|");
-                    System.out.println(" _O_  |");
-                    System.out.println(" |||  |");
-                    System.out.println("  H   |");
-                    System.out.println("_A____|");
+                    System.out
+                            .println("\n______ \n" + "  |  L|\n" + " _O_  |\n" + " |||  |\n" + "  H   |\n" + "_A____|");
 
                     tarkista.nollaa();
 
@@ -101,56 +74,27 @@ public class Aloita {
 
     public void taysiSana() {
 
-        if (tarkista.getVirheet() == 0) {
-            System.out.println("     ");
-            System.out.println("    P");
-            System.out.println("__O/ ");
-            System.out.println(" _|_/");
-            System.out.println("/    ");
-            System.out.println("     ");
+        if (tarkista.getVirheet() == 0) { // Pako
+            System.out.println("\n    P\n" + "__O/ \n" + " _|_/\n" + "/    \n");
+
         } else if (tarkista.getVirheet() == 1) {
-            System.out.println("                 ");
-            System.out.println("    P            ");
-            System.out.println("__O/             ");
-            System.out.println(" _|_/            ");
-            System.out.println("/         ______ ");
-            System.out.println("                 ");
+            System.out.println("\n    P\n" + "__O/ \n" + " _|_/\n" + "/         ______ \n");
 
         } else if (tarkista.getVirheet() == 2) {
-            System.out.println("                 ");
-            System.out.println("                |");
-            System.out.println("    P           |");
-            System.out.println("__O/            |");
-            System.out.println(" _|_/           |");
-            System.out.println("/         ______|");
-            System.out.println("                 ");
+            System.out.println("\n                |\n" + "    P           |\n" + "__O/            |\n"
+                    + " _|_/           |\n" + "/         ______|\n");
 
         } else if (tarkista.getVirheet() == 3) {
-            System.out.println("          ______ ");
-            System.out.println("                |");
-            System.out.println("    P           |");
-            System.out.println("__O/            |");
-            System.out.println(" _|_/           |");
-            System.out.println("/         ______|");
-            System.out.println("                 ");
+            System.out.println("\n          ______ \n" + "                |\n" + "    P           |\n"
+                    + "__O/            |\n" + " _|_/           |\n" + "/         ______|\n");
 
         } else if (tarkista.getVirheet() == 4) {
-            System.out.println("          ______ ");
-            System.out.println("               L|");
-            System.out.println("    P           |");
-            System.out.println("__O/            |");
-            System.out.println(" _|_/           |");
-            System.out.println("/         ______|");
-            System.out.println("                 ");
+            System.out.println("\n          ______ \n" + "               L|\n" + "    P           |\n"
+                    + "__O/            |\n" + " _|_/           |\n" + "/         ______|\n");
 
         } else if (tarkista.getVirheet() == 5) {
-            System.out.println("          ______ ");
-            System.out.println("            |  L|");
-            System.out.println("    P       |   |");
-            System.out.println("__O/        O   |");
-            System.out.println(" _|_/           |");
-            System.out.println("/         _A____|");
-            System.out.println("                 ");
+            System.out.println("\n          ______ \n" + "            |  L|\n" + "    P       |   |\n"
+                    + "__O/        O   |\n" + " _|_/           |\n" + "/         _A____|\n");
 
         }
         tarkista.nollaa();
