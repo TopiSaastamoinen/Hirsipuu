@@ -27,6 +27,7 @@ public class Kayttoliittyma {
 
         while (true) {
             String haaste = "";
+            sanalista.removeAll(sanalista);
 
             System.out.print("\nYksittäinen sana: 's'\n" // aloita peli, lisää sanoja yms
                     + "Fraasi: 'f'\n"
