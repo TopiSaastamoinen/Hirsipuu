@@ -1,4 +1,6 @@
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -20,17 +22,36 @@ public class UusiSana {
             System.out.println("Sanassa voi olla vain kirjaimia A-Z");
 
         } else {
-            // lisää syöte sanat.txt tiedostoon
-            // tästä puuttuu se tarkistus if-lauseke, joka tarkistaa sanan olemassaolon listalla.
-            try(FileWriter fwriter = new FileWriter("sanat.txt", true);
-                BufferedWriter bwriter = new BufferedWriter(fwriter);
-                PrintWriter out = new PrintWriter(bwriter))
-                {
-                    out.print("\n" + syote);
-                
-            } catch (IOException e) {
-                System.out.println("Virhe! " + e.getMessage());
+            String line = "";
+            Boolean syoteOlemassa = false;
 
+            // tarkista, onko sana jo tiedostossa
+            try (BufferedReader reader = new BufferedReader(new FileReader("sanat.txt"))) {
+                    // lue tiedoston loppuun asti
+                    while ((line = reader.readLine()) != null) {
+
+                        if (line.equals(syote)) {
+                            System.out.println("Sana on jo olemassa.");
+                            syoteOlemassa = true;
+                            break;
+                        }
+                    }
+                    
+                } catch (IOException e) {
+                    e.printStackTrace(System.out);
+                }
+
+            // lisää syöte sanat.txt tiedostoon
+            if (syoteOlemassa == false) {
+                try(FileWriter fwriter = new FileWriter("sanat.txt", true);
+                    BufferedWriter bwriter = new BufferedWriter(fwriter);
+                    PrintWriter out = new PrintWriter(bwriter))
+                {
+                    out.print("\n" + syote);   
+                
+                } catch (IOException e) {
+                    e.printStackTrace(System.out);
+                }
             }
 
             // System.out.println("Käytä lisättyä sanaa heti?");
