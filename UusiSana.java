@@ -21,7 +21,6 @@ public class UusiSana {
 
         } else {
             // lisää syöte sanat.txt tiedostoon
-            // tästä puuttuu se tarkistus if-lauseke, joka tarkistaa sanan olemassaolon listalla.
             try(FileWriter fwriter = new FileWriter("sanat.txt", true);
                 BufferedWriter bwriter = new BufferedWriter(fwriter);
                 PrintWriter out = new PrintWriter(bwriter))

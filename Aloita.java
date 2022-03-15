@@ -43,21 +43,6 @@ public class Aloita {
                         "   -   \n"+
                         "______ ");
                 } else if (tarkista.getVirheet() == 2) {
-                    System.out.println(
-                        "\n      |\n"+
-                        "      |\n"+
-                        "      |\n"+
-                        "      |\n"+
-                        "      |\n"+
-                        "______ ");
-
-                    System.out.println(
-                        "\n  -    \n" + 
-                        "    -  \n" + 
-                        " -     \n" + 
-                        "   -   \n" + 
-                        "______ ");
-                } else if (tarkista.getVirheet() == 2) {
                     System.out
                             .println("\n       \n" + "      |\n" + "      |\n" + "      |\n" + "      |\n" + "______|");
                 } else if (tarkista.getVirheet() == 3) {
