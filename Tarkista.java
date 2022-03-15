@@ -1,4 +1,3 @@
-import javax.swing.plaf.synth.SynthUI;
 import java.util.ArrayList;
 
 public class Tarkista {
@@ -8,8 +7,6 @@ public class Tarkista {
     private ArrayList<String> vaarat;
 
     public Tarkista() {
-        this.virheet = virheet;
-        this.voitto = voitto;
         this.kirjainlista = new ArrayList<>();
         this.vaarat = new ArrayList<>();
     }

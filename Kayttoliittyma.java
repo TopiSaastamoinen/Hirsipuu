@@ -5,38 +5,32 @@ import java.util.Scanner;
 public class Kayttoliittyma {
     private Scanner lukija;
     private ArrayList<String> sanalista;
-    private Arvonta arvonta;
     private UusiSana UusiSana;
-    private Tarkista tarkista;
-    private String arvottuSana;
     private Aloita aloita;
-    private String syote;
 
     public Kayttoliittyma(Scanner lukija) {
         this.lukija = lukija;
         this.sanalista = new ArrayList<>();
-        this.arvonta = new Arvonta();
         this.UusiSana = new UusiSana();
-        this.tarkista = new Tarkista();
-        String syote = "";
         this.aloita = new Aloita(lukija);
 
     }
 
     public void kaynnista() {
+        System.out.println("H I R S I P U U");
 
         while (true) {
             String haaste = "";
             sanalista.removeAll(sanalista);
 
-            System.out.print("\nYksittäinen sana: 's'\n" // aloita peli, lisää sanoja yms
+            System.out.print("Aloita peli valitsemalla sana, fraasi tai virke\n \nYksittäinen sana: 's'\n" // aloita peli, lisää sanoja yms
                     + "Fraasi: 'f'\n"
                     + "Sattumanvarainen virke: 'v'\n"
                     + "Lisää uusi sana listalle kirjoittamalla 'lisaa'\n"
                     + "Lopeta painamalla 'l'\n"
                     + "> ");
 
-            syote = lukija.nextLine();
+            String syote = lukija.nextLine();
 
             // valitaan mitä tehdään
             if (syote.equalsIgnoreCase("l")) {
