@@ -47,7 +47,8 @@ public class UusiSana {
                     BufferedWriter bwriter = new BufferedWriter(fwriter);
                     PrintWriter out = new PrintWriter(bwriter))
                 {
-                    out.print("\n" + syote);   
+                    out.print("\n" + syote);
+                    System.out.println("Sana lisätty onnistuneesti.");
                 
                 } catch (IOException e) {
                     e.printStackTrace(System.out);

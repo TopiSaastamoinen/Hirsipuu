@@ -43,6 +43,8 @@ public class Kayttoliittyma {
                 haaste = "fraasit.txt";
             } else if (syote.equalsIgnoreCase("v")) {
                 haaste = "lauseet.txt";
+            } else {
+                System.out.println("Virheellinen komento.");
             }
             // ladataan txt tiedosto
             try (Scanner tiedostonlukija = new Scanner(Paths.get(haaste))) {
@@ -54,14 +56,21 @@ public class Kayttoliittyma {
                     sanalista.add(rivi);
                 }
             } catch (Exception e) {
-                System.out.println("\nVirhe! Anna oikea komento." + e.getMessage());
+                System.out.println(e.getMessage());
                 continue;
             }
 
-            System.out.println("Aloita peli? k/e");
-            syote = lukija.nextLine();
-            if (syote.equalsIgnoreCase("k")) {
-                aloita.aloita(sanalista);
+            while (true) {
+                System.out.println("Aloita peli? k/e");
+                syote = lukija.nextLine();
+                if (syote.equalsIgnoreCase("k")) {
+                    aloita.aloita(sanalista);
+                    break;
+                } else if (syote.equalsIgnoreCase("e")) {
+                    break;
+                } else {
+                    System.out.println("Virheellinen komento, yritä uudelleen.");
+                }
             }
 
         }
