@@ -24,7 +24,7 @@ public class Aloita {
     public void suorita() {
 
         while (true) {
-            System.out.print("Anna kirjain: ");
+            System.out.print("Enter a letter: ");
             String kirjain = lukija.nextLine().toUpperCase();
             if (!(!kirjain.matches(".*[^A-Z].*")) || kirjain.equals("")) {
                 continue;

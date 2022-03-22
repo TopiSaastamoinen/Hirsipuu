@@ -23,28 +23,28 @@ public class Kayttoliittyma {
             String haaste = "";
             sanalista.removeAll(sanalista);
 
-            System.out.print("Aloita peli valitsemalla sana, fraasi tai virke\n \nYksittäinen sana: 's'\n" // aloita peli, lisää sanoja yms
-                    + "Fraasi: 'f'\n"
-                    + "Sattumanvarainen virke: 'v'\n"
-                    + "Lisää uusi sana listalle kirjoittamalla 'lisaa'\n"
-                    + "Lopeta painamalla 'l'\n"
+            System.out.print("Begin the game by selecting word, phrase, or sentence.\n \nSingle word: 'w'\n" // aloita peli, lisää sanoja yms
+                    + "Phrase: 'p'\n"
+                    + "Sentence: 's'\n"
+                    + "Add a new word by entering 'add'\n"
+                    + "Quit with 'q'\n"
                     + "> ");
 
             String syote = lukija.nextLine();
 
             // valitaan mitä tehdään
-            if (syote.equalsIgnoreCase("l")) {
+            if (syote.equalsIgnoreCase("q")) {
                 break;
-            } else if (syote.equalsIgnoreCase("lisaa")) {
+            } else if (syote.equalsIgnoreCase("add")) {
                 this.UusiSana.lisaa();
-            } else if (syote.equalsIgnoreCase("s")) {
+            } else if (syote.equalsIgnoreCase("w")) {
                 haaste = "sanat.txt";
-            } else if (syote.equalsIgnoreCase("f")) {
+            } else if (syote.equalsIgnoreCase("p")) {
                 haaste = "fraasit.txt";
-            } else if (syote.equalsIgnoreCase("v")) {
+            } else if (syote.equalsIgnoreCase("s")) {
                 haaste = "lauseet.txt";
             } else {
-                System.out.println("Virheellinen komento.");
+                System.out.println("Faulty command.");
             }
             // ladataan txt tiedosto
             try (Scanner tiedostonlukija = new Scanner(Paths.get(haaste))) {
@@ -61,15 +61,15 @@ public class Kayttoliittyma {
             }
 
             while (true) {
-                System.out.println("Aloita peli? k/e");
+                System.out.println("Begin game? y/n");
                 syote = lukija.nextLine();
-                if (syote.equalsIgnoreCase("k")) {
+                if (syote.equalsIgnoreCase("y")) {
                     aloita.aloita(sanalista);
                     break;
-                } else if (syote.equalsIgnoreCase("e")) {
+                } else if (syote.equalsIgnoreCase("n")) {
                     break;
                 } else {
-                    System.out.println("Virheellinen komento, yritä uudelleen.");
+                    System.out.println("Faulty command, try again.");
                 }
             }
 

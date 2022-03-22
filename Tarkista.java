@@ -15,12 +15,12 @@ public class Tarkista {
 
         if (sana.contains(kirjain)) {
             if (kirjainlista.contains(kirjain)) {
-                System.out.println(kirjain + " on jo siellä");
+                System.out.println(kirjain + " already exists.");
                 System.out.println("");
 
                 return true;
             }
-            System.out.println("Tässä oli kirjain " + kirjain);
+            System.out.println("The answer contains " + kirjain + ".");
             System.out.println("");
 
             if (!(kirjainlista.contains(kirjain))) {
@@ -32,11 +32,11 @@ public class Tarkista {
         } else {
 
             if (vaarat.contains(kirjain)) {
-                System.out.println("Käytit jo " + kirjain + ":n");
+                System.out.println(kirjain + "has already been used.");
                 System.out.println("");
                 return true;
             }
-            System.out.println("Ei ollut kirjainta " + kirjain);
+            System.out.println("The answer does not contain " + kirjain + ".");
             virheet++;
             vaarat.add(kirjain);
             return false;
@@ -75,7 +75,7 @@ public class Tarkista {
 
     public void tulostaVaarat() {
         int i = 1;
-        System.out.print("Käytetyt: ");
+        System.out.print("Used letters: ");
         for (String vaara : vaarat) {
             System.out.print(vaara);
             if (i == vaarat.size()) {

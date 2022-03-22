@@ -14,12 +14,12 @@ public class UusiSana {
     }
 
     public void lisaa() {
-        System.out.println("Syötä lisättävä sana: ");
+        System.out.println("Enter new word: ");
         String syote = lukija.nextLine().toUpperCase();
 
         // tarkista kaikki sanan kirjaimet, jos ääkkösiä tai numeroita yms. => virhe
         if (!(! syote.matches(".*[^A-Z].*"))) {
-            System.out.println("Sanassa voi olla vain kirjaimia A-Z");
+            System.out.println("The word can only contain letters from A to Z.");
 
         } else {
             String line = "";
@@ -31,7 +31,7 @@ public class UusiSana {
                     while ((line = reader.readLine()) != null) {
 
                         if (line.equals(syote)) {
-                            System.out.println("Sana on jo olemassa.");
+                            System.out.println("The word already exists.");
                             syoteOlemassa = true;
                             break;
                         }
@@ -48,7 +48,7 @@ public class UusiSana {
                     PrintWriter out = new PrintWriter(bwriter))
                 {
                     out.print("\n" + syote);
-                    System.out.println("Sana lisätty onnistuneesti.");
+                    System.out.println("Word added successfully.");
                 
                 } catch (IOException e) {
                     e.printStackTrace(System.out);
