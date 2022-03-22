@@ -17,7 +17,7 @@ public class Kayttoliittyma {
     }
 
     public void kaynnista() {
-        System.out.println("H I R S I P U U");
+        System.out.println("H A N G  M A N");
 
         while (true) {
             String haaste = "";
