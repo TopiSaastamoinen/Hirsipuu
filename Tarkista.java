@@ -44,7 +44,7 @@ public class Tarkista {
     }
 
     public void tulostaSana(String sana) {
-
+        System.out.println("");
         int pituus = sana.length() - 1;
         String kirjaimet[] = sana.split((""));
 
