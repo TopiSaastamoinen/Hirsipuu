@@ -18,13 +18,14 @@ public class Aloita {
 
         arvottuSana = arvonta.arvoSana(sanalista); // sana on valittu arvalla
         tarkista.tulostaSana(arvottuSana);
+        System.out.println(); // muutos tehty. Yritetty lisätä väli ennen pelin alotusta
         suorita();
     }
 
     public void suorita() {
 
         while (true) {
-            System.out.print("Enter a letter: ");
+            System.out.print("Enter a letter(A-Z): ");
             String kirjain = lukija.nextLine().toUpperCase();
             if (!(!kirjain.matches(".*[^A-Z].*")) || kirjain.equals("")) {
                 continue;
